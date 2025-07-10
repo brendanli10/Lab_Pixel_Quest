@@ -29,7 +29,7 @@ public class GeoController : MonoBehaviour
         float xInput = Input.GetAxis("Horizontal");
         Debug.Log(xInput);
         rb.velocity = new Vector2(xInput * speed, rb.velocity.y);
-
+        
         /*
         if (Input.GetKeyDown(KeyCode.W))
         {
@@ -52,6 +52,12 @@ public class GeoController : MonoBehaviour
         //moves the square to the right
         //transform.position += new Vector3(0.005f, 0, 0); */
 
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("Hit");
+        
+        
     }
 }
 
