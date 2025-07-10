@@ -53,9 +53,9 @@ public class GeoController : MonoBehaviour
         //transform.position += new Vector3(0.005f, 0, 0); */
 
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collision2D collision)
     {
-        Debug.Log("Hit");
+        Debug.Log ("Hit");
         
         
     }
