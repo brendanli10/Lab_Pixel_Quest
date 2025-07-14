@@ -13,7 +13,7 @@ public class GeoController : MonoBehaviour
         string variable2 = " Hi how are you today" +
             "";
         Debug.Log("Hello World");
-        Debug.Log(variable1 + variable2);
+        Debug.Log(variable1 + variable2)
     }
     
     // Update is called once per frame
