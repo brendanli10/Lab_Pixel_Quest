@@ -1,25 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GeoController : MonoBehaviour
 {
     //global vars
-    string variable1 = "Hello";
-    int var1 = 3;
+ //   string variable1 = "Hello";
+   // int var1 = 3;
     private Rigidbody2D rb;
-    int var2 = 3;
+   // int var2 = 3;
     public int speed = 8;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        string variable2 = " Hi how are you today" +
+       /* string variable2 = " Hi how are you today" +
             "";
         Debug.Log("Hello World");
         Debug.Log(variable1 + variable2);
-        Debug.Log(variable1 + variable2);
+        Debug.Log(variable1 + variable2); */
 
     }
 
@@ -28,10 +29,10 @@ public class GeoController : MonoBehaviour
     {
 
         float xInput = Input.GetAxis("Horizontal");
-        Debug.Log(xInput);
+        //Debug.Log(xInput);
         rb.velocity = new Vector2(xInput * speed, rb.velocity.y);
         
-        /*
+        /* Key Controls for Movement
         if (Input.GetKeyDown(KeyCode.W))
         {
             transform.position += new Vector3(0, 1, 0);
@@ -54,10 +55,19 @@ public class GeoController : MonoBehaviour
         //transform.position += new Vector3(0.005f, 0, 0); */
 
     }
-    private void OnTriggerEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log ("Hit");
-        
+      //  Debug.Log(collision.tag);
+
+        switch (collision.tag)
+        {
+            case "Death":
+            {
+                    string thisLevel = SceneManager.GetActiveScene().name;
+                    SceneManager.LoadScene(thisLevel);
+                    break;
+            }
+        }
         
     }
 }
