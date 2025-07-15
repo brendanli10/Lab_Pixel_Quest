@@ -11,7 +11,7 @@ public class GeoController : MonoBehaviour
     private Rigidbody2D rb;
    // int var2 = 3;
     public int speed = 8;
-
+    public string nextLevel = "Scene 2 GQ";
     // Start is called before the first frame update
     void Start()
     {
@@ -57,14 +57,19 @@ public class GeoController : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-      //  Debug.Log(collision.tag);
+        //  Debug.Log(collision.tag);
 
         switch (collision.tag)
         {
             case "Death":
-            {
+                {
                     string thisLevel = SceneManager.GetActiveScene().name;
                     SceneManager.LoadScene(thisLevel);
+                    break;
+                    }
+            case "Finish":
+                {
+                    SceneManager.LoadScene(nextLevel);
                     break;
             }
         }
