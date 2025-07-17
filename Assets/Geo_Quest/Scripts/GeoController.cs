@@ -26,10 +26,10 @@ public class GeoController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+//motion
         float xInput = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(xInput * speed, rb.velocity.y);
-        
+    //Color change 1 2 3
           if (Input.GetKeyDown(KeyCode.Alpha1)) 
         {
             sr.color = new Color (1,0,0); //red
