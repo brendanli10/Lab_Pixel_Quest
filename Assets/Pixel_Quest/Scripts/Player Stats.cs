@@ -11,11 +11,14 @@ public class PlayerStats : MonoBehaviour
     public int maxHealth = 3;
     private PlayerUIController _PUC;
     public Transform RespawnPoint;
+    public int CoinsInLevel = 0;
 
-   private void Start()
+    private void Start()
     {
         _PUC = GetComponent<PlayerUIController>();
         _PUC.UpdateHealth(Health, maxHealth);
+        CoinsInLevel = GameObject.Find("Coins").transform.childCount;
+        _PUC.UpdateText(coinCount + "/" + CoinsInLevel);
     } 
 private void OnTriggerEnter2D(Collider2D other)
     {
@@ -45,6 +48,7 @@ private void OnTriggerEnter2D(Collider2D other)
             case "Coin":
                 {
                     coinCount++;
+                    _PUC.UpdateText(coinCount + "/" + CoinsInLevel);
                     Destroy(other.gameObject);
                     break;
                 }
